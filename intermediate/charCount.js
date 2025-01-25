@@ -11,5 +11,7 @@
  */
 
 // Write your solution here
-
+function charCount(str, char) {
+    return str.split(char).length - 1;
+}
 module.exports = charCount;
