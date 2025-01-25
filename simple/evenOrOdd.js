@@ -11,5 +11,12 @@
  */
 
 // Write your solution here
+function isEvenOrOdd(i) {
 
+    if ( i % 2 == 0) {
+        return "Even"
+    } else {
+        return "Odd"
+    }
+}
 module.exports = isEvenOrOdd;
