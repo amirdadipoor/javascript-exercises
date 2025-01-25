@@ -11,5 +11,8 @@
  */
 
 // Write your solution here
-
+var fullname = "hello";
+function reverseString (fullname) {
+    return fullname.split("").reverse().join("");
+}
 module.exports = reverseString;
