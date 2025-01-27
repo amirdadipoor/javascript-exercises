@@ -11,7 +11,27 @@
  * removeTask("Buy groceries") should remove the task.
  * showTasks() should return a list of all current tasks.
  */
+// Write your solution hereconst todoList = [];
+const todoList = [];
+function addTask(task) {
+    if (task && typeof task === 'string' && !todoList.includes(task)) {
+        todoList.push(task);
+        return `${task} added to the list.`;
+    } else {
+        return 'Error: Task cannot be empty or already exists.';
+    }
+}
+function removeTask(task) {
+    const taskIndex = todoList.indexOf(task);
 
-// Write your solution here
-
+    if (taskIndex !== -1) {
+        todoList.splice(taskIndex, 1);
+        return `${task} removed from the list.`;
+    } else {
+        return 'Error: Task not found.';
+    }
+}
+function showTasks() {
+    return [...todoList];
+}
 module.exports = { addTask, removeTask, showTasks };
