@@ -11,19 +11,18 @@
  * [ [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3] ].
  */
 function generateCombinations(numbers) {
-    const result = [];
-    function backtrack(start, currentCombination) {
-        if (currentCombination.length > 0) {
-            result.push([...currentCombination]);
-        }
-        for (let i = start; i < numbers.length; i++) {
-            currentCombination.push(numbers[i]);
-            backtrack(i + 1, currentCombination);
-            currentCombination.pop();
-        }
+    const combinations = [];
+    function generate(currentCombination, index) {
+      if (currentCombination.length > 0) {
+        combinations.push([...currentCombination]);
+      }
+      for (let i = index; i < numbers.length; i++) {
+        currentCombination.push(numbers[i]);
+        generate(currentCombination, i + 1);
+        currentCombination.pop();
+      }
     }
-    backtrack(0, []);
-    result.sort((a, b) => a.length - b.length || a.join(",") < b.join(",") ? -1 : 1);
-    return result;
-}
+    generate([], 0);
+    return combinations.sort((a, b) => a.length - b.length || a[0] - b[0]);
+  }
 module.exports = generateCombinations;
