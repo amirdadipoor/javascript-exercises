@@ -11,11 +11,5 @@
  */
 
 // Write your solution here
-function sumArray(arr) {
-    var total = 0;
-    for  (var i = 0; i < arr.length; i++) {
-        total += arr[i];
-    }
-    return total;
-}
+const sumArray = arr => arr.reduce((total, num) => total + num, 0);
 module.exports = sumArray;
