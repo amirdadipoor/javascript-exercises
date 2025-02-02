@@ -13,20 +13,8 @@
  * divide(10, 2) should return 5.
  */
 // Write your solution here
-function add(a , b) {
-    return Math.abs(a + b)
-}
-function subtract(a , b) {
-    return Math.abs(a - b)
-}
-function multiply(a , b) {
-    return Math.abs(a * b)
-}
-function divide(a , b) {
-    if (a == 0 || b == 0){
-        return NaN;
-    } else {
-    return Math.abs(a / b);
-    }
-}
+const add = (a, b) => Math.abs(a + b);  
+const subtract = (a, b) => Math.abs(a - b);  
+const multiply = (a, b) => Math.abs(a * b);  
+const divide = (a, b) => (b === 0 ? NaN : Math.abs(a / b));
 module.exports = { add, subtract, multiply, divide };
