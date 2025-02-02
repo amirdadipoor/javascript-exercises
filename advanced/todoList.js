@@ -13,25 +13,15 @@
  */
 // Write your solution hereconst todoList = [];
 const todoList = [];
-function addTask(task) {
-    if (task && typeof task === 'string' && !todoList.includes(task)) {
-        todoList.push(task);
-        return `${task} added to the list.`;
-    } else {
-        return 'Error: Task cannot be empty or already exists.';
-    }
-}
-function removeTask(task) {
-    const taskIndex = todoList.indexOf(task);
-
-    if (taskIndex !== -1) {
-        todoList.splice(taskIndex, 1);
-        return `${task} removed from the list.`;
-    } else {
-        return 'Error: Task not found.';
-    }
-}
-function showTasks() {
-    return [...todoList];
-}
+const addTask = task =>
+  task && typeof task === 'string' && !todoList.includes(task)
+    ? (todoList.push(task), `${task} added to the list.`)
+    : 'Error: Task cannot be empty or already exists.';
+const removeTask = task => {
+  const taskIndex = todoList.indexOf(task);
+  return taskIndex !== -1
+    ? (todoList.splice(taskIndex, 1), `${task} removed from the list.`)
+    : 'Error: Task not found.';
+};
+const showTasks = () => [...todoList];
 module.exports = { addTask, removeTask, showTasks };
