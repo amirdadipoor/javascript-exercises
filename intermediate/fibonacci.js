@@ -12,4 +12,15 @@
 
 // Write your solution here
 
+function fibonacci(n) {
+    let sequence = [0, 1];
+    let i = 2;
+
+    while (i < n) {
+        sequence.push(sequence[i - 1] + sequence[i - 2]);
+        i++;
+    }
+
+    return sequence.slice(0, n);
+}
 module.exports = fibonacci;
