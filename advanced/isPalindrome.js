@@ -10,6 +10,12 @@
  * isPalindrome(121) should return true.
  * isPalindrome(-121) should return false (negative numbers are not palindromes).
  * isPalindrome(10) should return false.
- */
+ */function isPalindrome(num) {
+    if (num < 0) return false; 
 
+    let str = num.toString();
+    let reversedStr = str.split('').reverse().join('');    
+
+    return str === reversedStr;  
+}
 module.exports = isPalindrome;
