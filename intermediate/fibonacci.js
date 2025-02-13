@@ -11,27 +11,20 @@
  */
 
 // Write your solution here
-function fibonacciRecursive(number) {
-    if(number === 0) { return 0}
-    else if (number === 1) { return 1 }
-    else {
-        return fibonacciRecursive(number-1) + fibonacciRecursive(number-2);
-    }
-}
-function fibonacci(number) {
-
-    if (number === 0) { return []; }
-    else if (number === 1) {return [0]}
-    else if (number === 2) {return [0,1]}
-    else {
-        let arr = new Array(number);
-        arr[0] = 0
-        arr[1] = 1;
-        for (let i = 2; i < arr.length; i++) {
-            arr[i] = arr[i - 1] + arr[i - 2] ;
-        }
-        return arr;
-    }
+function fibonacci(num) {
+  let a = 0; //1st
+  let b = 1; //2nd
+  let c; //c = a + b , a = b , b = c
+  let pushedArr = [];
+  pushedArr.push(a);
+  pushedArr.push(b);
+  for (let i = 2; i < num; i++) {
+    c = a + b;
+    a = b;
+    b = c;
+    pushedArr.push(c);
+  }
+  return pushedArr;
 }
 
 module.exports = fibonacci;
