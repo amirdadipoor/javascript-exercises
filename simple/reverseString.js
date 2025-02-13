@@ -15,7 +15,7 @@
 // Write your solution here
 
 // using Spread
-const reverseString = (str) => [...str].reverse().join('');
+const reverseString = (str) => str.split('').reverse().join('');
 
 
 module.exports = reverseString;
