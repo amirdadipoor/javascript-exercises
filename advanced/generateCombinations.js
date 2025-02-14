@@ -11,4 +11,23 @@
  * [ [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3] ].
  */
 
+function generateCombinations(nums) {
+    let result = [];
+
+    function backtrack(start, combination) {
+        if (combination.length > 0) {
+            result.push([...combination]); 
+        }
+
+        for (let i = start; i < nums.length; i++) {
+            combination.push(nums[i]); 
+            backtrack(i + 1, combination); 
+            combination.pop(); 
+        }
+    }
+
+    backtrack(0, []); 
+    result.sort((a, b) => a.length - b.length);
+    return result;
+}
 module.exports = generateCombinations;
