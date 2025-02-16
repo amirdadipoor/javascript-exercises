@@ -26,35 +26,17 @@
 
 
 function digitalClock(){
-
-    //console.log( document.getElementById('clock') );
-
     let time = '';
-    //console.clear()
-    //console.log(hour + ":" + minute + ":" + second);
     time = getCurrntTime();
-    //console.log(time);
     document.getElementById('clock').innerHTML = time;
-
-    /*setInterval(() => {
-        let time = '';
-        //console.clear()
-        //console.log(hour + ":" + minute + ":" + second);
-        time = getCurrntTime();
-        //console.log(time);
-        document.getElementById('clock').innerHTML = time;
-        //console.log(document.getElementById('clock').innerHTML);
-        //clockElement.textContent = `${hour}:${minute}:${second}`;
-        //process.stdout.write(hour + ":" + minute + ":" + second);
-    }, 200);*/
 }
 
 function getCurrntTime() {
     let date = new Date();
-    let hour = date.getHours();
-    let minute = date.getMinutes();
-    let second = date.getSeconds();
-
+    let hour = date.getHours().toString().padStart(2, "0")
+    let minute = date.getMinutes().toString().padStart(2, "0")
+    let second = date.getSeconds().toString().padStart(2, "0")
+    
     return `${hour}:${minute}:${second}`;
 }
 

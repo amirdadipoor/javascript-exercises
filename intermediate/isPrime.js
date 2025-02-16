@@ -11,13 +11,13 @@
  */
 
 // Write your solution here
-function isPrime(number ) {
-    if (number < 2 ) { return false }
-    if (number === 2) return true;
-    let max = Math.floor(number ** 0.5) + 1 ;
-    for (let i = 2; i <= max; i++) {
-        if (number % i === 0  ) {return false;}
+const isPrime = (number ) => {
+    if(number === 2 || number === 3){
+        return true
+    }else if (number % 2 === 0 || number % 3 === 0 || number === 1 || number === 0){
+        return false
+    }else{
+        return true
     }
-    return true;
 }
 module.exports = isPrime;

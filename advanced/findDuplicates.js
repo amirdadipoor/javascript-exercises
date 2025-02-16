@@ -12,27 +12,18 @@
 
 // Write your solution here
 
-function findDuplicates(input) {
-    let output = [];
-    let lastestelement = NaN;
-    let exists = false;
-    //console.log(input)
-    for(let item of input) {
-        //console.log(item);
-        if (item === lastestelement) {
-            if (exists === true) {
-                // do nothing
-            } else {
-                output.push(item);
-                exists = true;
-            }
-        } else {
-            exists = false;
-        }
-        lastestelement = item
-    }
+const findDuplicates = arr => {
+    const seen = new Set();
+    const duplicates = new Set();
 
-    return output;
+    for (let item of arr) {
+        if (seen.has(item)) {
+            duplicates.add(item);
+        } else {
+            seen.add(item);
+        }
+    }
+    return [...duplicates];
 }
 
 module.exports = findDuplicates;
