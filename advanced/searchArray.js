@@ -10,6 +10,8 @@
  * searchArray([1, 2, 3, 4], 3) should return true.
  * searchArray([1, 2, 3, 4], 5) should return false.
  */
-searchArray = (arr, value) => arr.includes(value);  // Checking the availability of the value
+// linear search
+
+const searchArray = (array, key) => array.includes(key);
 
 module.exports = searchArray;

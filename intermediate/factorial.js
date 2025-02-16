@@ -10,7 +10,13 @@
  * factorial(0) should return 1.
  */
 
-// Write your solution here
-const factorial = n => (n <= 1 ? 1 : n * factorial(n - 1));
+function factorialRecursive(number) {
+    if (number < 0) return NaN;
+    if (number === 0) return 1;
+    if (number === 1) return 1;
+    else return number * factorialRecursive(number - 1);
+}
+
+factorial = (number) => factorialRecursive(number);
 
 module.exports = factorial;

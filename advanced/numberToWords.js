@@ -9,35 +9,55 @@
  * numberToWords(123) should return "one hundred twenty three".
  * numberToWords(5) should return "five".
  */
+function numberToWords(input){
+    const Numbers = new Map([
+        [0 , "zero"],[1 , "one"], [2 , "two"],[3 , "three"],[4 , "four"],[5 , "five"],
+        [6 ,"six"],[7 ,"seven"],[8 ,"eight"],[9 ,"nine"],[10 , "ten"],[11 , "eleven"],
+        [12, "twelve"],[13, "thirteen"],[14, "fourteen"],[15, "fifteen"],[16, "sixteen"],
+        [17, "seventeen"],[18, "eighteen"],[19, "nineteen"],[20, "twenty"],[30 ,"thirty"],
+        [40 ,"forty"],[50 ,"fifty"],[60, "sixty"], [70, "seventy"],[80, "eighty"], [90, "ninety"],
+    ])
 
-// Write your solution here
-function numberToWords(num) {
-  if (num === 0) return "zero";
+    if (input === 0) return Numbers.get(input);
 
-  const ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-  const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
-  const thousands = ["", "thousand", "million", "billion", "trillion"];
+    let digits = new String( input + "").split("").map(Number);
 
-  function helper(n) {
-      if (n === 0) return "";
-      if (n < 20) return ones[n];
-      if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? " " + ones[n % 10] : "");
-      return ones[Math.floor(n / 100)] + " hundred" + (n % 100 ? " " + helper(n % 100) : "");
-  }
+    console.log(digits);
+    let words = "";
+    for (let i = 0; i < digits.length; i++) {
+        let stage = digits.length - i;
+        let digit = digits[i];
+        let step = "";
+        if ( stage === 4 ) {
+            step += `${Numbers.get(digit) } thousand `;
+        }else if ( stage === 3 ) {
+            step += `${Numbers.get(digit) } hundred `;
+        }else if ( stage === 2 ) {
 
-  let result = [];
-  let i = 0;
+            if (digit === 1) {
+                digit = digit * 10 + digits[i + 1];
+                digits[i + 1] = 0;
+                step += `${ Numbers.get(digit) }` ;
+            }else {
+                digit = digit * 10;
+                step += `${ Numbers.get(digit) }`;
+            }
 
-  while (num > 0) {
-      let chunk = num % 1000;
-      if (chunk) {
-          result.unshift(helper(chunk) + (thousands[i] ? " " + thousands[i] : ""));
-      }
-      num = Math.floor(num / 1000);
-      i++;
-  }
+        }else if ( stage === 1 ) {
+            if ( digit === 0 ) {
+                continue;
+            } else {
+                step += ` ${ Numbers.get(digit) }`;
+            }
+        }
 
-  return result.join(" ").trim();
+        words += step;
+    }
+
+    return words.trim();
 }
 
+
 module.exports = numberToWords;
+
+

@@ -9,6 +9,6 @@
  * calculateAverage([1, 2, 3, 4]) should return 2.5.
  * calculateAverage([10, 20, 30]) should return 20.
  */
-const calculateAverage = arr => arr.reduce((sum, num) => sum + num, 0) / arr.length;
+calculateAverage = (arr = []) => arr.length === 0 ? NaN : (arr.reduce((a, b) => a + b , 0) ) / arr.length;
 
 module.exports = calculateAverage;

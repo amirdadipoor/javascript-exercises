@@ -10,7 +10,11 @@
  * reverseString("world") should return "dlrow".
  */
 
+
+
 // Write your solution here
-reverseString = (string) => { return string.split('').reverse().join('') }
+// using Spread
+const reverseString = (str) => [...str].reverse().join('');
+
 
 module.exports = reverseString;

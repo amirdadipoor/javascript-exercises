@@ -10,7 +10,8 @@
  * sumArray([0, 0, 0]) should return 0.
  */
 
-// Write your solution here
-const sumArray = num_array => num_array.reduce((sum, num) => sum + num, 0);
+// write using reduce function
+sumArray = (arr = []) => arr.length === 0 ? 0 : arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
 
 module.exports = sumArray;

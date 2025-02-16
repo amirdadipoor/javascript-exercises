@@ -10,7 +10,6 @@
  * celsiusToFahrenheit(100) should return 212.
  */
 
-// Write your solution here
-celsiusToFahrenheit = (celsius) => { return (celsius * 9/5) + 32 }
+celsiusToFahrenheit = (degree) => (degree * (9 / 5)) + 32;
 
 module.exports = celsiusToFahrenheit;

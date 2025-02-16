@@ -17,15 +17,31 @@
  * This exercise involves DOM manipulation. Ensure you have an HTML file with a container element
  * (e.g., `<div id="clock"></div>`) to display the clock.
  */
+// Write your solution here
 
-const digitalClock = () => {
-    const now = new Date();
-    const format = num => String(num).padStart(2, '0');
 
-    const timeString = `${format(now.getHours())}:${format(now.getMinutes())}:${format(now.getSeconds())}`;
-    document.getElementById('clock').textContent = timeString;
-};
+// this problem solve in clock.html
 
-setInterval(digitalClock, 1000);
+
+
+function digitalClock(){
+    let time = '';
+    time = getCurrntTime();
+    document.getElementById('clock').innerHTML = time;
+}
+
+function getCurrntTime() {
+    let date = new Date();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
+
+    // Add leading zero if single digit
+    hour = hour < 10 ? '0' + hour : hour;
+    minute = minute < 10 ? '0' + minute : minute;
+    second = second < 10 ? '0' + second : second;
+
+    return `${hour}:${minute}:${second}`;
+}
 
 module.exports = digitalClock;

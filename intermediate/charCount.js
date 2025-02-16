@@ -10,7 +10,6 @@
  * charCount("world", "o") should return 1.
  */
 
-// Write your solution here
-const charCount = (string, char) => string.split(char).length - 1;
+const charCount = (string, char) => string.split('').filter(item => item === char).length;
 
 module.exports = charCount;

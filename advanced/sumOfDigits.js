@@ -9,6 +9,8 @@
  * sumOfDigits(123) should return 6 (1 + 2 + 3).
  * sumOfDigits(987) should return 24 (9 + 8 + 7).
  */
-const sumOfDigits = (num) => [...num.toString()].reduce((sum, digit) => sum + +digit, 0);
+const sumOfDigits = (number) => String(number).split('').reduce((sum, digit) => sum + +digit, 0);
+
+// +digit: Converts each string digit back to a number using the unary plus operator.
 
 module.exports = sumOfDigits;

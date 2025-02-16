@@ -11,12 +11,9 @@
  * removeTask("Buy groceries") should remove the task.
  * showTasks() should return a list of all current tasks.
  */
-
-// Write your solution here
-let list = new Set();
-
-const addTask = (task) => list.add(task);
-const showTasks = () => [...list];
-const removeTask = (task) => list.delete(task);
+let Tasks = new Set([]);
+addTask = (task) => Tasks.has(task) ? false : Tasks.add(task);
+removeTask = (task) => Tasks.has(task) ? Tasks.delete(task) : false;
+showTasks =() => [...Tasks];
 
 module.exports = { addTask, removeTask, showTasks };

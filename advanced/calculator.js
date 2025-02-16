@@ -14,9 +14,10 @@
  */
 
 // Write your solution here
-const add = (a, b) => a + b;
-const subtract = (a, b) => a - b;
-const multiply = (a, b) => a * b;
-const divide = (a, b) => (b === 0 ? NaN : a / b);
+add = (a = 0, b = 0) => a + b;
+subtract = (a = 0, b = 0 ) => a - b;
+multiply = (a = 0, b = 0) => a * b;
+divide = (a = 0 , b = 1) => b === 0 ? NaN : a / b;
+
 
 module.exports = { add, subtract, multiply, divide };
