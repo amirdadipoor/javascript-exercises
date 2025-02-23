@@ -14,25 +14,10 @@
  * showUsers() should return [].
  */
 let users = [];
-
-function addUser(user) {
-    if (!users.includes(user)) { // جلوگیری از اضافه شدن نام تکراری
-        users.push(user);
-    }
-    return users;
-}
-
-function removeUser(user) {
-    for (i = 0; i < users.length; i++) {
-        if (users[i] === user) { 
-            users.splice(i, 1); 
-            break; 
-        }
-    }
-    return users; 
-}
-function showUsers() {
-    return users;
-}
-
+const addUser = user => users.includes(user) ? console.log(`User "${user}" already exists.`) : users.push(user);
+const removeUser = user => {
+  const index = users.indexOf(user);
+  index === -1 ? console.log(`User "${user}" not found.`) : users.splice(index, 1);
+};
+const showUsers = () => users.length ? users : "No users available.";
 module.exports = { addUser, removeUser, showUsers };

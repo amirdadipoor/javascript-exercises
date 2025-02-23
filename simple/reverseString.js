@@ -11,14 +11,6 @@
  */
 
 // Write your solution here
-
-function reverseString(string_input){
-    let reverse=""
-    let length = string_input.length;
-    for(let i = length - 1 ; i >= 0 ; i--){
-        reverse += string_input[i];
-    }
-    console.log(reverse);
-    return reverse
-}
+const fullname = "hello";
+const reverseString = str => str.split("").reverse().join("");
 module.exports = reverseString;

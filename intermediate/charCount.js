@@ -11,19 +11,5 @@
  */
 
 // Write your solution here
-
-function charCount(Name,set){
-    var len = Name.length;
-    var count = 0;
-    for (i = 0 ; i < len ; i++)
-    {
-        if (Name[i] === set){
-            count += 1;
-        } else {
-            continue;
-        }
-    }
-    return count;
-}
-
+const charCount = (str, char) => str.split(char).length - 1;
 module.exports = charCount;
