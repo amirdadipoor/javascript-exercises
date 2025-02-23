@@ -10,4 +10,5 @@
  * calculateAverage([10, 20, 30]) should return 20.
  */
 calculateAverage = (arr) => (arr.reduce((a, b) => a + b , 0)) / arr.length;
+// add change 
 module.exports = calculateAverage;
