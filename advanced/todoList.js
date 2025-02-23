@@ -12,27 +12,16 @@
 //  * showTasks() should return a list of all current tasks.
 //  */
 
-let tasks = [];
-
-function addTask(task) {
-    if (!tasks.includes(task)) { 
-        tasks.push(task);
-    }
-    return tasks;
-}
-
-function removeTask(task) {
-    for (let i = 0; i < tasks.length; i++) { 
-        if (tasks[i] === task) { 
-            tasks.splice(i, 1); 
-            break; 
-        }
-    }
-    return tasks; 
-}
-
-function showTasks() {
-    return tasks;
-}
-
+const todoList = [];
+const addTask = task =>
+  task && typeof task === 'string' && !todoList.includes(task)
+    ? (todoList.push(task), `${task} added to the list.`)
+    : 'Error: Task cannot be empty or already exists.';
+const removeTask = task => {
+  const taskIndex = todoList.indexOf(task);
+  return taskIndex !== -1
+    ? (todoList.splice(taskIndex, 1), `${task} removed from the list.`)
+    : 'Error: Task not found.';
+};
+const showTasks = () => [...todoList];
 module.exports = { addTask, removeTask, showTasks }

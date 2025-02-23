@@ -11,18 +11,8 @@
  */
 
 // Write your solution here
-
-function findDuplicates(numbers) {
-    let seen = new Set();
-    let duplicates = new Set();
-    
-    for (let num of numbers) {
-        if (seen.has(num)) {
-            duplicates.add(num);
-        } else {
-            seen.add(num); 
-        }
-    }
-    return Array.from(duplicates);
-}
+const findDuplicates = arr => {
+    const seen = new Set();
+    return arr.filter(item => (seen.has(item) ? false : seen.add(item) || false)).filter((item, index) => arr.indexOf(item) !== index);
+};
 module.exports = findDuplicates;

@@ -17,24 +17,13 @@
  * This exercise involves DOM manipulation. Ensure you have an HTML file with a container element
  * (e.g., `<div id="clock"></div>`) to display the clock.
  */
-
-function digitalClock() {
+const digitalClock = () => {
     const clockElement = document.getElementById("clock");
-
-    function updateClock() {
+    const updateClock = () => {
         const now = new Date();
-        const time = now.toLocaleTimeString('en-GB', { hour12: false });
-        if (clockElement) {
-            clockElement.textContent = time;
-        }
-    }
-
-    if (typeof jest === "undefined") {
-        setInterval(updateClock, 1000);
-    }
-
+        clockElement.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    };
     updateClock();
-}
-
+    setInterval(updateClock, 1000);
+};
 module.exports = digitalClock;
-

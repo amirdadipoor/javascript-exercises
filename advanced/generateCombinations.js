@@ -10,48 +10,17 @@
  * generateCombinations([1, 2, 3]) should return
  * [ [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3] ].
  */
-///version 1
-function generateCombinations(nums) {
-    let result = [];
-
-    function backtrack(start, combination) {
-        if (combination.length > 0) {
-            result.push([...combination]);
+const generateCombinations = numbers => {
+    const combinations = [];
+    const generate = (currentCombination, index) => {
+        if (currentCombination.length) combinations.push([...currentCombination]);
+        for (let i = index; i < numbers.length; i++) {
+            currentCombination.push(numbers[i]);
+            generate(currentCombination, i + 1);
+            currentCombination.pop();
         }
-        for (let i = start; i < nums.length; i++) {
-            combination.push(nums[i]);
-            backtrack(i + 1, combination);
-            combination.pop();
-        }
-    }
-
-    backtrack(0, []);
-    return result.sort((a, b) => a.length - b.length || a[0] - b[0]);
-}
-
-////version2
-// function generateCombinations(nums) {
-//     let result = [];
-
-//     let totalCombinations = 1 << nums.length;
-
-//     for (let i = 1; i < totalCombinations; i++) {
-//         let combination = [];
-//         for (let j = 0; j < nums.length; j++) {
-//             if (i & (1 << j)) {
-//                 combination.push(nums[j]);
-//             }
-//         }
-//         result.push(combination);
-//     }
-
-//     return result.sort((a, b) => a.length - b.length || a[0] - b[0]);
-// }
-
-
+    };
+    generate([], 0);
+    return combinations.sort((a, b) => a.length - b.length || a[0] - b[0]);
+};
 module.exports = generateCombinations;
-
-
-
-
-
