@@ -13,11 +13,11 @@
  */
 
 // Write your solution here
-let tasks = [];
+let tasks = new Set([]);
 
-const addTask = task => (tasks.includes(task) ? tasks : tasks.push(task), tasks);
+const addTask = task => tasks.has(task) ? false : tasks.add(task);
 
-const removeTask = task => (tasks = tasks.filter(t => t !== task));
+const removeTask = task => tasks.has(task) ? tasks.delete(task) : false ;
 
-const showTasks = () => tasks;
+const showTasks = () => [...tasks];
 module.exports = { addTask, removeTask, showTasks };
