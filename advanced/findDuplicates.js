@@ -24,5 +24,5 @@ const findDuplicates = arr => {
     return [...duplicates];
 };
 
-console.log(findDuplicates([1, 2, 2, 3, 4, 4]))
+
 module.exports = findDuplicates;
